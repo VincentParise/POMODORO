@@ -5,8 +5,11 @@ const objetTime = {
   timeWork: 10,
   timeRest: 10,
 };
+
 const workDisplayTime = document.querySelector(".work-display-time");
 const pauseDisplayTime = document.querySelector(".pause-display-time");
+let intervalIdTimer;
+let intervalIdRepos;
 
 initTime(objetTime.timeWork, objetTime.timeRest);
 
@@ -31,7 +34,7 @@ function initTime(timeWorkSecond, timeRestSecond) {
 function startTimer(durationInSeconds) {
   let remainingTime = durationInSeconds;
 
-  const intervalIdTimer = setInterval(() => {
+    intervalIdTimer = setInterval(() => {
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
 
@@ -55,7 +58,7 @@ function startTimer(durationInSeconds) {
 function startRepos(durationInSeconds) {
   let remainingTime = durationInSeconds;
 
-  const intervalIdRepos = setInterval(() => {
+    intervalIdRepos = setInterval(() => {
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
 
@@ -100,7 +103,7 @@ resetBtn.addEventListener('click',()=>{
     const cycles = document.querySelector('.cycles');
     cycles.textContent=`Cycle(s) : ${cyclesTime}`;
     initTime(objetTime.timeWork, objetTime.timeRest);
-    startTimer(objetTime.timeWork);
- 
-
+    clearInterval(intervalIdRepos);
+    clearInterval(intervalIdTimer)
+    lock=false;
 })
