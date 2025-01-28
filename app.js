@@ -104,6 +104,6 @@ resetBtn.addEventListener('click',()=>{
     cycles.textContent=`Cycle(s) : ${cyclesTime}`;
     initTime(objetTime.timeWork, objetTime.timeRest);
     clearInterval(intervalIdRepos);
-    clearInterval(intervalIdTimer)
+    clearInterval(intervalIdTimer);
     lock=false;
 })
